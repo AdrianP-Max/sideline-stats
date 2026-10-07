@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- A simple volleyball: gold ball, three curved seam panels, on court blue. -->
+  <defs><clipPath id="ball"><circle r="168"/></clipPath></defs>
+  <rect width="512" height="512" fill="#17407A"/>
+  <g transform="translate(256 256) scale(.86)">
+    <circle r="168" fill="#F2B705"/>
+    <g clip-path="url(#ball)" fill="none" stroke="#17407A" stroke-width="13" stroke-linecap="round">
+      <g id="seam">
+        <path d="M0 0C46-38 62-110 40-190"/>
+        <path d="M200 70C118 26 84-60 104-190"/>
+      </g>
+      <use href="#seam" transform="rotate(120)"/>
+      <use href="#seam" transform="rotate(240)"/>
+    </g>
+    <circle r="168" fill="none" stroke="#FFFFFF" stroke-width="14"/>
+  </g>
+</svg>

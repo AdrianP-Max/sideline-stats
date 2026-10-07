@@ -1,3 +1,12 @@
+/* Fonts are bundled in /fonts so the app looks right offline and never
+   contacts Google. Barlow is free to share under the SIL Open Font License (fonts/OFL.txt). */
+@font-face{font-family:"Barlow";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/barlow-400.woff2) format("woff2")}
+@font-face{font-family:"Barlow";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/barlow-500.woff2) format("woff2")}
+@font-face{font-family:"Barlow";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/barlow-600.woff2) format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/barlow-condensed-600.woff2) format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/barlow-condensed-700.woff2) format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/barlow-condensed-800.woff2) format("woff2")}
+
 :root{
   --bg:#E7ECF3; --surface:#FFFFFF; --ink:#0F1B2D; --muted:#56667C; --line:#CBD5E2;
   --court:#17407A; --court-2:#1F5196; --on-court:#FFFFFF; --ball:#F2B705;

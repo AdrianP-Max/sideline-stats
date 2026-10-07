@@ -12,7 +12,17 @@ language: what changed, why, and which file it's in.
 
 - `index.html`: page shell. Empty containers (`#app`, `#bar`, `#nav`, `#toast`) that the JS fills in.
 - `style.css`: all styles. Colour tokens live on `:root`, with dark-mode overrides.
-- `app.js`: all behaviour, wrapped in one IIFE.
+- `app.js`: all behaviour, wrapped in one IIFE. Registers the service worker at the bottom.
+- `sw.js`: service worker for offline use. Precaches the files in `FILES`, then
+  serves from cache and refreshes in the background (stale-while-revalidate).
+  **If you add, remove or rename a file the app needs, add it to `FILES` and bump
+  `VERSION`.** Editing an existing file needs no bump.
+- `manifest.webmanifest`: name, colours and icons used when the app is installed.
+- `icons/`: `icon.svg` (rounded) and `icon-maskable.svg` (full-bleed, ball inside the
+  safe zone) are the sources. PNGs are rendered from them: icon-192/512 from
+  `icon.svg`, icon-maskable-512 and apple-touch-icon (180) from `icon-maskable.svg`.
+- `fonts/`: Barlow and Barlow Condensed (latin subset, woff2), bundled so the app works
+  offline and makes no third-party requests. Licence in `fonts/OFL.txt` (keep it).
 
 ## How app.js works
 
@@ -43,11 +53,16 @@ language: what changed, why, and which file it's in.
 ## Roadmap
 
 1. ~~Split into index.html / style.css / app.js~~
-2. PWA: manifest, simple volleyball icon (no logos/brands), service worker for offline (gyms have bad wifi).
+2. ~~PWA: manifest, simple volleyball icon (no logos/brands), service worker for offline (gyms have bad wifi).~~
 3. French/English toggle: all UI text in one translations object; natural Canadian French.
 4. Printable one-page recruiting profile (print stylesheet → PDF); backup export/import as a file.
 
 ## Testing
 
-Open `index.html` in a browser. From Phase 2 on, the service worker needs
-`http://localhost` or `https://` (e.g. `python3 -m http.server` in this folder).
+Run `python3 -m http.server 8000` in this folder and open http://localhost:8000.
+The service worker only runs on `https://` or `localhost`. On a phone over the local
+network (http://192.168.x.x) the app works but offline mode and installing don't.
+Use an https host to test those.
+
+Note for users: on iPhone, the installed home-screen app has its own storage, separate
+from Safari. Move data into it with a backup code (or backup file, Phase 4).

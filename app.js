@@ -455,4 +455,10 @@ document.addEventListener("click", function(e){
 });
 
 render();
+
+/* ---------- offline support ---------- */
+// Service workers only run on https:// or localhost, so skip quietly anywhere else.
+if ("serviceWorker" in navigator && window.isSecureContext){
+  window.addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").catch(function(){}); });
+}
 })();
