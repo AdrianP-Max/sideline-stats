@@ -64,5 +64,13 @@ The service worker only runs on `https://` or `localhost`. On a phone over the l
 network (http://192.168.x.x) the app works but offline mode and installing don't.
 Use an https host to test those.
 
+## Hosting
+
+Live at https://adrianp-max.github.io/sideline-stats/ (GitHub Pages, repo
+`AdrianP-Max/sideline-stats`, served from the `main` branch root).
+**Every push to `main` publishes to real users within a minute or two**, so only
+push after testing locally. Commits use the GitHub no-reply email. Never commit a
+personal email address.
+
 Note for users: on iPhone, the installed home-screen app has its own storage, separate
 from Safari. Move data into it with a backup code (or backup file, Phase 4).
